@@ -4,7 +4,7 @@ var alerta = document.querySelector("#Turno");
 var cuadros = document.getElementsByClassName('cuadros');
 var reiniciar = document.querySelector("#Reiniciar");
 var turno1 = true;
-
+var terminado=0;
 
 for(var i=0; i<cuadros.length; i++){
 	cuadros[i].addEventListener('click', function(){
@@ -12,12 +12,15 @@ for(var i=0; i<cuadros.length; i++){
 			this.innerHTML = 'X';
 			alerta.innerHTML = "Turno del jugador #2";
 			alerta.style.color = "#ff2e4c";
-
+			terminado++;
+			console.log(terminado);
 		}
 		else{
 			this.innerHTML = "O";
 			alerta.innerHTML = "Turno del jugador #1";
 			alerta.style.color = "#2e99b0";
+			terminado++;
+			console.log(terminado);
 		}
 		if(ganador()){
 			alerta.innerHTML = "El ganador es el jugador #";
@@ -27,6 +30,14 @@ for(var i=0; i<cuadros.length; i++){
 		}
 		this.style.pointerEvents = "none";
 		turno1 = !turno1;
+
+		if(terminado==9){
+				alerta.innerHTML = "Nadie Gano!";
+			}
+
+
+
+
 	});
 }
 /*
