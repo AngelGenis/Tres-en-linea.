@@ -19,7 +19,6 @@ for(var i=0; i<cuadros.length; i++){
 			alerta.innerHTML = "Turno del jugador #1";
 			alerta.style.color = "#2e99b0";
 			terminado++;
-			console.log(terminado);
 		}
 		if(ganador()){
 			alerta.innerHTML = "El ganador es el jugador #";
@@ -33,9 +32,6 @@ for(var i=0; i<cuadros.length; i++){
 		if(!ganador() && terminado==9 ){
 				alerta.innerHTML = "Nadie Gano!";
 			}
-
-
-
 
 	});
 }
