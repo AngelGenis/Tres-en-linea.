@@ -1,24 +1,75 @@
-var cuadros = document.getElementsByClassName('cuadros');
-var turnAlert = document.getElementById('Turno');
+'use strict'
 
-var turno = true;
+var alerta = document.querySelector("#Turno");
+var cuadros = document.getElementsByClassName('cuadros');
+var reiniciar = document.querySelector("#Reiniciar");
+var turno1 = true;
+
 
 for(var i=0; i<cuadros.length; i++){
-	cuadros[i].addEventListener('click', clickeado);
+	cuadros[i].addEventListener('click', function(){
+		if(turno1){
+			this.innerHTML = 'X';
+			alerta.innerHTML = "Turno del jugador #2";
+			alerta.style.color = "#ff2e4c";
+
+		}
+		else{
+			this.innerHTML = "O";
+			alerta.innerHTML = "Turno del jugador #1";
+			alerta.style.color = "#2e99b0";
+		}
+		if(ganador()){
+			alerta.innerHTML = "El ganador es el jugador #";
+			//turno1 ? alerta.innerHTML += 1 : alerta.innerHTML += 2;
+			alerta.innerHTML += (turno1 ?  1 : 2);
+			document.querySelector('#Tabla').style.pointerEvents = "none";
+		}
+		this.style.pointerEvents = "none";
+		turno1 = !turno1;
+	});
+}
+/*
+camelCase
+kebab-case
+snake_case
+*/
+function ganador(){
+	if(cuadros[0].innerHTML == cuadros[1].innerHTML && cuadros[0].innerHTML == cuadros[2].innerHTML && cuadros[0].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[3].innerHTML == cuadros[4].innerHTML && cuadros[3].innerHTML == cuadros[5].innerHTML && cuadros[3].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[6].innerHTML == cuadros[7].innerHTML && cuadros[6].innerHTML == cuadros[8].innerHTML && cuadros[6].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[0].innerHTML == cuadros[3].innerHTML && cuadros[0].innerHTML == cuadros[6].innerHTML && cuadros[0].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[1].innerHTML == cuadros[4].innerHTML && cuadros[1].innerHTML == cuadros[7].innerHTML && cuadros[1].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[2].innerHTML == cuadros[5].innerHTML && cuadros[2].innerHTML == cuadros[8].innerHTML && cuadros[2].innerHTML != ""){
+		return true;
+	}
+
+	if(cuadros[0].innerHTML == cuadros[4].innerHTML && cuadros[0].innerHTML == cuadros[8].innerHTML && cuadros[0].innerHTML != ""){
+		return true;
+	}
+	if(cuadros[2].innerHTML == cuadros[4].innerHTML && cuadros[2].innerHTML == cuadros[6].innerHTML && cuadros[2].innerHTML != ""){
+		return true;
+	}
+	return false;
 }
 
-function clickeado() {
-	if(turno){
-		turnAlert.innerHTML = "Turno del jugador #2";
-		turnAlert.style.color = "#ffb677";
-    this.innerHTML = "X";
-	}
-	else{
-		turnAlert.innerHTML="Turno del jugador #1";
-		turnAlert.style.color = "#219897";
-    this.innerHTML = "O";
-	}
-	turno = !turno;
 
 
-}
+reiniciar.addEventListener('click', ()=>{
+	location.reload();
+});

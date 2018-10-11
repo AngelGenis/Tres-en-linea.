@@ -3,7 +3,7 @@
 	margin: 0px;
 }
 h1{
-	color: #219897;
+	color: #2e99b0;
 	margin-top: 10px;
 }
 #wrapper{
@@ -28,25 +28,25 @@ tr{
 	transition-duration: .2s;
 }
 .cuadros:hover{
-	background: #85cfcb;
+	background: #fcd77f;
 	cursor: pointer;
 	transition-duration: .2s;
 }
 td:nth-of-type(2){
-	border-left: 2px solid #2d2d2d;
-	border-right: 2px solid #2d2d2d;
+	border-left: 4px solid #2d2d2d;
+	border-right: 4px solid #2d2d2d;
 }
 tr:nth-of-type(2) td{
-	border-top: 2px solid #2d2d2d;
-	border-bottom: 2px solid #2d2d2d;
+	border-top: 4px solid #2d2d2d;
+	border-bottom: 4px solid #2d2d2d;
 }
 #Turno{
-	color: #219897;
+	color: #2e99b0;
 	font-weight: bold;
 }
 button{
 	color: white;
-	background: #219897;
+	background: #2e99b0;
 	border: 0px;
 	width: 100px;
 	height: 50px;
