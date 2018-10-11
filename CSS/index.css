@@ -8,14 +8,14 @@ h1{
 }
 #wrapper{
 	text-align: center;
-	width: 50%;
-	height: 500px;
-	position: relative;
-	left: 50%;
-	transform: translate(-50%);
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate3d(-50%, -50%,0);
 }
 table{
 	margin: 0 auto;
+	width: 300px;
 }
 tr{
 	margin: 0px;
